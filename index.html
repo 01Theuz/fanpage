@@ -1,12 +1,423 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de commit</title>
+  <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>God of War - O Fantasma de Esparta</title>
+
+<meta name="description" content="Este é um site fandom da saga completa de God Of War, descubra a história desde a queda de Kratos até o Ragnarök ">
+<meta name="keywords" content="God of War, GoW, Atreus, História God of War,">
+<meta name="author" content="Mentes Digitais">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="God of War: Arquivo de Kratos — Saga Completa">
+<meta property="og:description" content="Tudo sobre a saga do Fantasma de Esparta. História, personagens e guias.">
+<meta property="og:image" content="img/link-preview.jpg"> <meta property="og:url" content="https://seusite.com">
+
+<link rel="icon" href="img/omega.png">
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <h1>Ol� Mundo</h1>
-    <p>Teste de commit no github</p>
+
+  <!-- ===== INTRO OVERLAY ===== -->
+  <div id="intro" class="intro-overlay">
+    <canvas id="introCanvas" class="intro-canvas"></canvas>
+    <div class="intro-logo" id="introLogo">
+      <span class="intro-god" id="introGod">GOD</span>
+      <div class="intro-omega-wrap" id="introOmegaWrap">
+        <div class="intro-omega" id="introOmega">Ω</div>
+        <span class="intro-of" id="introOf">OF</span>
+      </div>
+      <span class="intro-war" id="introWar">WAR</span>
+    </div>
+    <div class="intro-flash" id="introFlash"></div>
+  </div>
+
+  <!-- ===== CURSOR ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===== PARTÍCULAS DE CINZAS ===== -->
+  <div class="ash-particles" id="ashParticles"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="nav-omega">Ω</span>
+      <span class="nav-brand">GOD OF WAR</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item-dropdown">
+        <a href="#historia" class="dropbtn">HISTÓRIA</a>
+        <div class="dropdown-content">
+          <a href="#historia">ERA GREGA</a>
+          <a href="#historia-nordica" id="nordicaLink">ERA NÓRDICA</a>
+        </div>
+      </li>
+      <li><a href="#personagens">PERSONAGENS</a></li>
+      <li><a href="#armas">ARMAS</a></li>
+      <li><a href="#curiosidades">CURIOSIDADES</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="home">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline poster="img/background.jpg" class="video-bg">
+        <source src="video/background-gow.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-vignette"></div>
+    <div class="hero-runes"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="rune-symbol">᛭</span>
+        A SAGA DO FANTASMA DE ESPARTA
+        <span class="rune-symbol">᛭</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="ht-god">GOD</span>
+        <span class="ht-omega">Ω</span>
+        <span class="ht-war">WAR</span>
+      </h1>
+      <p class="hero-subtitle">De general espartano à matador de deuses</p>
+      <div class="hero-divider">
+        <span class="divider-line"></span>
+        <span class="divider-symbol">᛭</span>
+        <span class="divider-line"></span>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-num">8</span><span class="hstat-label">JOGOS CANÔNICOS</span></div>
+        <div class="hstat-sep"></div>
+        <div class="hstat"><span class="hstat-num">21</span><span class="hstat-label">ANOS DE SAGA</span></div>
+        <div class="hstat-sep"></div>
+        <div class="hstat"><span class="hstat-num">+25</span><span class="hstat-label">DEUSES MORTOS</span></div>
+      </div>
+      <!-- BOTÃO "INICIAR JORNADA" SOBREPOSTO AO QUADRADO ANIMADO -->
+      <div class="cta-wrapper">
+        <div class="cta-bg-square"></div>
+        <a href="#historia" class="hero-cta">
+          <span class="cta-rune">᛫</span>
+          INICIAR JORNADA
+          <span class="cta-rune">᛫</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-shaft"></div>
+      <span>DESCER</span>
+    </div>
+  </header>
+
+  <!-- ===== SEÇÃO 1: HISTÓRIA ===== -->
+  <section class="section historia-section" id="historia">
+    <!-- Layers de fundo animados -->
+    <div class="historia-bg-layer greek-bg-layer active"></div>
+    <div class="historia-bg-layer nordic-bg-layer"></div>
+
+    <div class="section-label reveal">
+      <span class="sec-num">01</span>
+      <span class="sec-line"></span>
+      <span class="sec-tag">CRONOLOGIA</span>
+    </div>
+
+    <!-- ERA GREGA -->
+    <div class="historia-era reveal">
+      <div class="era-header era-header-greek">
+        <div class="era-icon">🏛️</div>
+        <div>
+          <h2 class="era-title">ERA GREGA</h2>
+          <p class="era-subtitle">A Ascensão e Queda do Fantasma de Esparta</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline Grega -->
+    <div class="timeline-gow" id="timelineGreek">
+      <!-- Cards da era grega renderizados via JS -->
+    </div>
+
+    <!-- ERA NÓRDICA -->
+    <div class="historia-era reveal" id="historia-nordica">
+      <div class="era-header era-header-nordic">
+        <div class="era-icon">🌲</div>
+        <div>
+          <h2 class="era-title era-title-nordic">ERA NÓRDICA</h2>
+          <p class="era-subtitle">O Recomeço em Midgard</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline Nórdica -->
+    <div class="timeline-gow nordic" id="timelineNordic">
+      <!-- Cards da era nórdica renderizados via JS -->
+    </div>
+
+  </section>
+
+  <!-- ===== SEÇÃO 2: PERSONAGENS ===== -->
+  <section class="section section-alt" id="personagens">
+    <div class="section-label reveal">
+      <span class="sec-num">02</span>
+      <span class="sec-line"></span>
+      <span class="sec-tag">PERSONAGENS</span>
+    </div>
+    <div class="section-header reveal">
+      <h2 class="section-title">HERÓIS, ALIADOS <span class="acc">&amp; DEUSES</span></h2>
+      <p class="section-desc">Os mortais, divindades e criaturas que moldaram a jornada de Kratos</p>
+    </div>
+
+    <div class="chars-era-selector reveal" id="charsEraSelector">
+
+      <!-- ERA GREGA -->
+      <div class="era-group-wrapper" id="eraGregaWrapper">
+        <button class="era-main-btn greek-main-btn" id="btnEraGrega" onclick="toggleSubGames('grega')">
+          <span class="era-btn-icon">🏛️</span>
+          <span class="era-btn-label">ERA GREGA</span>
+          <span class="sub-arrow" id="arrowGrega">▼</span>
+        </button>
+        <div class="sub-games-row" id="subGamesGrega">
+          <button class="sub-btn logo-btn greek-sub" onclick="loadChars('ascension', this)" title="GOW: Ascension">
+            <img src="logos/logo_1.png" alt="God of War: Ascension" class="logo-img">
+          </button>
+          <button class="sub-btn logo-btn greek-sub" onclick="loadChars('chains', this)" title="GOW: Chains of Olympus">
+            <img src="logos/logo_2.png" alt="God of War: Chains of Olympus" class="logo-img">
+          </button>
+          <button class="sub-btn logo-btn greek-sub" onclick="loadChars('gow1', this)" title="GOW I">
+            <img src="logos/logo_3.png" alt="God of War I" class="logo-img">
+          </button>
+          <button class="sub-btn logo-btn greek-sub" onclick="loadChars('ghost', this)" title="GOW: Ghost of Sparta">
+            <img src="logos/logo_4.png" alt="God of War: Ghost of Sparta" class="logo-img">
+          </button>
+          <button class="sub-btn logo-btn greek-sub" onclick="loadChars('gow2', this)" title="GOW II">
+            <img src="logos/logo_5.webp" alt="God of War II" class="logo-img">
+          </button>
+          <button class="sub-btn logo-btn greek-sub" onclick="loadChars('gow3', this)" title="GOW III">
+            <img src="logos/logo_6.png" alt="God of War III" class="logo-img">
+          </button>
+        </div>
+      </div>
+
+      <!-- ERA NÓRDICA -->
+      <div class="era-group-wrapper" id="eraNordicaWrapper">
+        <button class="era-main-btn nordic-main-btn" id="btnEraNordica" onclick="toggleSubGames('nordica')">
+          <span class="era-btn-icon">🌲</span>
+          <span class="era-btn-label">ERA NÓRDICA</span>
+          <span class="sub-arrow" id="arrowNordica">▼</span>
+        </button>
+        <div class="sub-games-row" id="subGamesNordica">
+          <button class="sub-btn logo-btn nordic-sub" onclick="loadChars('gow2018', this)" title="GOW (2018)">
+            <img src="logos/logo_7.png" alt="God of War 2018" class="logo-img">
+          </button>
+          <button class="sub-btn logo-btn nordic-sub" onclick="loadChars('ragnarok', this)" title="GOW: Ragnarök">
+            <img src="logos/logo_8.png" alt="God of War Ragnarök" class="logo-img">
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="charsDisplayArea">
+      <div id="charsDisplayTitle" class="chars-display-title"></div>
+      <div id="charsGrid" class="chars-grid-dynamic"></div>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO 3: ARMAS ===== -->
+  <section class="section" id="armas">
+    <div class="section-label reveal">
+      <span class="sec-num">03</span>
+      <span class="sec-line"></span>
+      <span class="sec-tag">ARSENAL DE KRATOS</span>
+    </div>
+    <div class="section-header reveal">
+      <h2 class="section-title">AS ARMAS <span class="acc">DO DEUS DA GUERRA</span></h2>
+      <p class="section-desc">Cada arma conta uma história de sangue, traição e poder</p>
+    </div>
+
+    <div class="weapons-showcase">
+
+      <!-- LÂMINAS DO CAOS -->
+      <div class="weapon-feature reveal">
+        <div class="weapon-glow-wrap">
+          <div class="weapon-img-container chaos-glow">
+            <img src="guns/blades.png" alt="Lâminas do Caos" class="weapon-img" loading="lazy">
+          </div>
+        </div>
+        <div class="weapon-details">
+          <div class="weapon-era-badge greek-badge">ERA GREGA &amp; NÓRDICA</div>
+          <h3 class="weapon-name">Lâminas do Caos</h3>
+          <p class="weapon-lore">Forjadas nas chamas do Tártaro pelo próprio Ares, as Lâminas do Caos foram acorrentadas aos pulsos de Kratos como símbolo de sua servidão. Mesmo após conquistar a liberdade, elas permaneceram — uma cicatriz permanente de seu passado. Retornam na era nórdica como as armas mais poderosas de Kratos quando ele abraça sua fúria novamente.</p>
+          <div class="weapon-games-list">
+            <span class="wgl">GOW: Ascension</span>
+            <span class="wgl">Chains of Olympus</span>
+            <span class="wgl">GOW 1 / 2 / 3</span>
+            <span class="wgl">Ghost of Sparta</span>
+            <span class="wgl highlight">GOW 2018</span>
+            <span class="wgl highlight">Ragnarök</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MACHADO LEVIATÃ -->
+      <div class="weapon-feature weapon-feature-reverse reveal">
+        <div class="weapon-glow-wrap blue-glow">
+          <div class="weapon-img-container axe-glow">
+            <img src="guns/machado.png" alt="Machado Leviatã" class="weapon-img" loading="lazy">
+          </div>
+        </div>
+        <div class="weapon-details">
+          <div class="weapon-era-badge nordic-badge">ERA NÓRDICA</div>
+          <h3 class="weapon-name weapon-name-nordic">Machado Leviatã</h3>
+          <p class="weapon-lore">Forjado pelos anões Brok e Sindri usando o mesmo metal de Mjolnir, o Machado Leviatã foi presente de Faye para Kratos. Encantado com o gelo de Jötunheim, ele pode ser arremessado e invocado de volta à mão de Kratos como um bumerangue mortal. É o símbolo da nova fase de Kratos: controlada, poderosa e ligada à família.</p>
+          <div class="weapon-games-list">
+            <span class="wgl highlight">GOW 2018</span>
+            <span class="wgl highlight">Ragnarök</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTRAS ARMAS -->
+      <div class="weapons-secondary reveal">
+        <h3 class="sec-weapons-title">OUTRAS ARMAS DA SAGA</h3>
+        <div class="sec-weapons-grid">
+
+          <div class="sec-weapon-card">
+            <div class="sw-icon">⚡</div>
+            <h4>Lâmina do Olimpo</h4>
+            <p>Espada divina de Zeus, usada em GoW2. Única arma capaz de matar deuses e titãs. Kratos a usa para se matar e liberar a Esperança em GoW3.</p>
+            <span class="sw-game">GoW 2 · GoW 3</span>
+          </div>
+
+          <div class="sec-weapon-card">
+            <div class="sw-icon">🌙</div>
+            <h4>Lâmina de Artemis</h4>
+            <p>Espada pesada presenteada por Artemis em GoW1. Primeiro upgrade de arma da franquia — mais lenta que as Lâminas, mas devastadora contra grupos de inimigos.</p>
+            <span class="sw-game">GoW 1</span>
+          </div>
+
+          <div class="sec-weapon-card">
+            <div class="sw-icon">💀</div>
+            <h4>Luvas de Hades</h4>
+            <p>Retiradas do próprio Hades após derrotá-lo em GoW3. Permitem puxar a alma dos inimigos e são usadas nos punhos de Kratos como arma de combate corpo a corpo.</p>
+            <span class="sw-game">GoW 3</span>
+          </div>
+
+          <div class="sec-weapon-card">
+            <div class="sw-icon">🌊</div>
+            <h4>Tridente de Posêidon</h4>
+            <p>Obtido após derrotar Posêidon em GoW1. Permite a Kratos respirar e se mover livremente debaixo d'água — essencial para explorar os abismos aquáticos do jogo.</p>
+            <span class="sw-game">GoW 1 · GoW 2</span>
+          </div>
+
+          <div class="sec-weapon-card">
+            <div class="sw-icon">🗡️</div>
+            <h4>Lança Draupnir</h4>
+            <p>Em Ragnarök, Kratos recebe do anão Durlin a Lança Draupnir — forjada de um anel que se multiplica. Pode ser cravada em superfícies e detonada, criando explosões em cadeia.</p>
+            <span class="sw-game">Ragnarök</span>
+          </div>
+
+          <div class="sec-weapon-card">
+            <div class="sw-icon">🔱</div>
+            <h4>Lâminas de Atenas</h4>
+            <p>Versão aprimorada das Lâminas do Caos em Ghost of Sparta. Reforjadas com magia olímpica, possuem maior alcance e poder elemental, refletindo a nova posição de Kratos como Deus da Guerra.</p>
+            <span class="sw-game">Ghost of Sparta</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO 4: CURIOSIDADES ===== -->
+  <section class="section section-alt" id="curiosidades">
+    <div class="section-label reveal">
+      <span class="sec-num">04</span>
+      <span class="sec-line"></span>
+      <span class="sec-tag">CURIOSIDADES</span>
+    </div>
+    <div class="section-header reveal">
+      <h2 class="section-title">SEGREDOS <span class="acc">&amp; FATOS</span></h2>
+      <p class="section-desc">O que os deuses não queriam que você soubesse</p>
+    </div>
+
+    <div class="facts-masonry">
+      <div class="fact-block tall reveal">
+        <div class="fact-num-big">2005</div>
+        <h3>O Ano que Mudou o Action</h3>
+        <p>O God of War original de 2005 redefiniu o gênero de action-adventure. A câmera fixa inspirada em Shadow of Colossus, os combates fluidos e a narrativa épica criaram um template que toda a indústria seguiu por uma década.</p>
+        <span class="fact-src">Santa Monica Studio, 2005</span>
+      </div>
+      <div class="fact-block reveal">
+        <div class="fact-emoji">🎭</div>
+        <h3>Kratos Foi Baseado em Hércules</h3>
+        <p>O designer David Jaffe se inspirou no mito de Hércules — um semideus que mata sua família em fúria divina e parte numa jornada de redenção — para criar o arco emocional de Kratos.</p>
+      </div>
+      <div class="fact-block reveal">
+        <div class="fact-emoji">🎬</div>
+        <h3>A Cena de Abertura de GoW3</h3>
+        <p>A batalha inicial de GoW3, com Kratos escalando o Olimpo sobre Gaia enquanto os Titãs avançam, levou mais de um ano só de produção. É considerada uma das cenas de abertura mais épicas da história dos games.</p>
+      </div>
+      <div class="fact-block wide reveal">
+        <div class="fact-emoji">🔄</div>
+        <h3>O Reinício Que Salvou a Franquia</h3>
+        <p>Após GoW3, a equipe testou múltiplas direções para a série, incluindo uma Kratos feminina e uma aventura no Egito. O diretor Cory Barlog apostou no arco do pai e filho — e criou o maior sucesso crítico da franquia em 2018, com 94 no Metacritic.</p>
+        <span class="fact-src">GDC Talk — Cory Barlog, 2019</span>
+      </div>
+      <div class="fact-block reveal">
+        <div class="fact-emoji">🌍</div>
+        <div class="fact-num-med">35M+</div>
+        <p>Cópias vendidas de God of War (2018) e Ragnarök combinados — os dois jogos mais vendidos da história da Sony Santa Monica.</p>
+      </div>
+      <div class="fact-block reveal">
+        <div class="fact-emoji">🗣️</div>
+        <h3>Christopher Judge Improvisou</h3>
+        <p>O ator Christopher Judge (voz de Kratos) improvisou várias falas marcantes do jogo, incluindo alguns dos momentos mais emotivos entre Kratos e Atreus. A equipe manteve vários takes improvisados no produto final.</p>
+      </div>
+      <div class="fact-block tall reveal">
+        <div class="fact-emoji">🧩</div>
+        <h3>GoW 2018: Um Plano Único</h3>
+        <p>God of War (2018) é filmado inteiramente em um único plano-sequência sem cortes visíveis — algo inédito em jogos desse escopo. O diretor de fotografia foi contratado especialmente para planejar cada transição de cena como cinema ao vivo.</p>
+        <span class="fact-src">Game Informer, 2018</span>
+      </div>
+      <div class="fact-block reveal">
+        <div class="fact-emoji">🌲</div>
+        <h3>Faye Sempre Soube de Tudo</h3>
+        <p>As pinturas de Jötunheim no GoW2018 mostram a jornada inteira de Kratos e Atreus, incluindo eventos de Ragnarök. Faye, sendo uma gigante, tinha acesso às profecias e preparou tudo com décadas de antecedência.</p>
+      </div>
+      <div class="fact-block wide reveal">
+        <div class="fact-emoji">⚙️</div>
+        <h3>Ragnarök: 11 Reinos em 3 Anos</h3>
+        <p>God of War Ragnarök foi desenvolvido durante a pandemia de COVID-19, com grande parte da equipe trabalhando remotamente. Mesmo assim, entregou mais de 40h de conteúdo, 11 reinos visitáveis e uma das narrativas mais complexas da história dos videogames.</p>
+        <span class="fact-src">Santa Monica Studio Dev Diary, 2022</span>
+      </div>
+      <div class="fact-block reveal">
+        <div class="fact-emoji">🏆</div>
+        <div class="fact-num-med">200+</div>
+        <p>Prêmios conquistados por God of War Ragnarök em 2022, incluindo Jogo do Ano no The Game Awards, tornando-se um dos jogos mais premiados da história.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-omega">Ω</div>
+    <div class="footer-content">
+      <div class="footer-brand">GOD OF WAR — ARQUIVO DE KRATOS</div>
+      <div class="footer-tagline">Feito por fãs · Para fãs · Com sangue dos deuses</div>
+    </div>
+    <div class="footer-warning">
+      ⚔️ Site não oficial. God of War® é propriedade da Sony Interactive Entertainment &amp; Santa Monica Studio.
+    </div>
+    <div class="footer-rune">᛭ ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ ᚾ ᛁ ᛃ ᛇ ᛈ ᛉ ᛊ ᛏ ᛒ ᛖ ᛗ ᛚ ᛜ ᛞ ᛟ ᛭</div>
+    <div class="footer-date" id="footerDate"></div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
